@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OrganizationalHierarchy</string>
+    <string name="team_hierarchy">Team Hierarchy</string>
 </resources>
