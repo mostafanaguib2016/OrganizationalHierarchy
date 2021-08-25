@@ -1,5 +1,8 @@
 package com.mmnaguib.organizationalhierarchy.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 data class EmployeesResponse(
     val ArabicMessage: String = "",
     val AsyncActionType: String = "",
@@ -15,6 +18,7 @@ data class EmployeesResponse(
     val Success: Boolean = true
 )
 
+@Parcelize
 data class Data(
     val AccountID: Int,
     val ActivationCode: String,
@@ -23,22 +27,22 @@ data class Data(
     val DepartmentID: Int,
     val DepartmentName: String,
     val Email: String,
-    val FireBaseToken: Any,
-    val GroupId: Any,
+    val FireBaseToken: String,
+    val GroupId: Int,
     val IsActivated: Boolean,
     val IsAdmin: Boolean,
     val IsBusinessHead: Boolean,
     val IsDeleted: Boolean,
     val IsStaff: Boolean,
     val IsUnderCompany: Boolean,
-    val JobDescription: Any,
+    val JobDescription: String,
     val JobTitle: String,
-    val LastChatMessage: Any,
+    val LastChatMessage: String,
     val ManagerID: Int,
     val MemberCode: String,
     val Name: String,
     val PhoneNumber: String,
-    val ProfileImage: Any,
+    val ProfileImage: String,
     val UserStateID: Int,
-    val UserStateMessage: Any
-)
+    val UserStateMessage: String
+) : Parcelable
