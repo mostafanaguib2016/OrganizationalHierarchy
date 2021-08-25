@@ -43,23 +43,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
             Log.e(TAG, "subscribeToObserver: size ${it.Data.size}" )
             adapter.submitData(it.Data as ArrayList<Data>)
 
-
-            val employees = ArrayList<Employee>()
-
-            it.Data.forEach {
-                employees.add(Employee(it))
-            }
-
-            val manager = Manager(it.Data[0],employees)
-            val manager2 = Manager(it.Data[0],employees)
-            val managers = ArrayList<Manager>()
-            managers.add(manager)
-            managers.add(manager2)
-
-            hierarchyAdapter = HierarchyAdapter(managers)
-
-            binding.empRv.layoutManager = LinearLayoutManager(this)
-            binding.empRv.adapter = hierarchyAdapter
+            filterList(it.Data)
 
 
         })
@@ -71,9 +55,21 @@ class MainActivity : AppCompatActivity(), KoinComponent {
 
     fun filterList(list: ArrayList<Data>){
 
-        list.forEach {
+        val listOfManagers = ArrayList<Manager>()
+        val listOfEmployees = ArrayList<Employee>()
 
+        for(i in list){
+
+            for (j in list){
+                if (i.ManagerID == j.ManagerID){
+                    listOfEmployees.add(Employee(j))
+                }
+            }
+            listOfManagers.add(Manager(i,listOfEmployees))
         }
+        hierarchyAdapter = HierarchyAdapter(listOfManagers)
+        binding.empRv.layoutManager = LinearLayoutManager(this)
+        binding.empRv.adapter = hierarchyAdapter
 
     }
 

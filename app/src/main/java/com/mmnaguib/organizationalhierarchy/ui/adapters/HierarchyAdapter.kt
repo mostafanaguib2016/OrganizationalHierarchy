@@ -16,7 +16,7 @@ class HierarchyAdapter(groups: List<ExpandableGroup<*>?>?)
         ManagerViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
-                R.layout.item_employee,parent,false
+                R.layout.item_manager,parent,false
             )
         )
 

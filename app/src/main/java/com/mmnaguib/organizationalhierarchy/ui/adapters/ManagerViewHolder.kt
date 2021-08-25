@@ -4,11 +4,12 @@ import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import com.mmnaguib.organizationalhierarchy.R
 import com.mmnaguib.organizationalhierarchy.databinding.ItemEmployeeBinding
+import com.mmnaguib.organizationalhierarchy.databinding.ItemManagerBinding
 import com.mmnaguib.organizationalhierarchy.model.Data
 import com.mmnaguib.organizationalhierarchy.model.Manager
 import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder
 
-class ManagerViewHolder(val binding: ItemEmployeeBinding): GroupViewHolder(binding.root)
+class ManagerViewHolder(val binding: ItemManagerBinding): GroupViewHolder(binding.root)
 {
 
     fun bind(item: Manager){
